@@ -9,10 +9,15 @@ class Comida:
         self.height = height
         self.food_x, self.food_y = self.gerar_posicao()
 
-    def gerar_posicao(self):
+    def gerar_posicao(self, snake_pixels=[]):
+
         food_x = round(rd.randrange(0, self.width - self.tam_pixel) / float(self.tam_pixel)) * float(self.tam_pixel)
         food_y = round(rd.randrange(0, self.height - self.tam_pixel) / float(self.tam_pixel)) * float(self.tam_pixel)
-        return food_x, food_y
+
+        if [food_x, food_y] not in snake_pixels:
+            return food_x, food_y
+        else:
+            return self.gerar_posicao(snake_pixels)
 
     def desenhar(self, tela, color):
         py.draw.rect(tela, color, [self.food_x, self.food_y, self.tam_pixel, self.tam_pixel])

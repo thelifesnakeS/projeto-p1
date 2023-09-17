@@ -60,7 +60,7 @@ while not end_game:
     # Verifica colisão com a comida
     if cobra.x == comida.food_x and cobra.y == comida.food_y:
         tam_snake += 1
-        comida.food_x, comida.food_y = comida.gerar_posicao()
+        comida.food_x, comida.food_y = comida.gerar_posicao(cobra.pixels)
 
     # Desenhar cobra
     for pixel in cobra.pixels:
