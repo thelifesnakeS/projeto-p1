@@ -18,10 +18,10 @@ tam_pixel = 20
 speed = 10
 tam_snake = 1
 
-
 comida = Comida(tam_pixel, width, height)
 cobra = Cobra(width, height)
 
+evento_anterior = ""  # Armazena a Tecla anteriormente cliclada
 
 while not end_game:
     screen.fill(preto)
@@ -29,15 +29,27 @@ while not end_game:
     for e in py.event.get():
         if e.type == py.QUIT:
             end_game = True
+
         elif e.type == py.KEYDOWN:
             if e.key == py.K_UP:
-                cobra.virar("up", tam_pixel)
+                if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
+                    cobra.virar("up", tam_pixel)
+                    evento_anterior = py.K_UP
+
             elif e.key == py.K_DOWN:
-                cobra.virar("down", tam_pixel)
+                if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
+                    cobra.virar("down", tam_pixel)
+                    evento_anterior = py.K_DOWN
+
             elif e.key == py.K_LEFT:
-                cobra.virar("left", tam_pixel)
+                if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
+                    cobra.virar("left", tam_pixel)
+                    evento_anterior = py.K_LEFT
+
             elif e.key == py.K_RIGHT:
-                cobra.virar("right", tam_pixel)
+                if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
+                    cobra.virar("right", tam_pixel)
+                    evento_anterior = py.K_RIGHT
 
     cobra.aumentar_tamanho(tam_snake)
     if cobra.colisao(width, height):
