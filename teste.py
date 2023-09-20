@@ -28,12 +28,14 @@ class Comida:
         self.tam_pixel = tam_pixel
         self.width = width
         self.height = height
+        #---------------------------------------------------
         self.tipos_comida = {
             "nerf": (255, 0, 0),  # Vermelha
             "buff": (255, 255, 0),  # Amarela
             "normal": (255, 255, 255)  # Branca
         }
         self.tipo = "normal"  # Começa com a comida normal
+        #---------------------------------------------------
         self.food_x, self.food_y = self.gerar_posicao()
 
     def gerar_posicao(self):
@@ -44,12 +46,12 @@ class Comida:
     def desenhar(self, tela):
         cor = self.tipos_comida[self.tipo]
         py.draw.rect(tela, cor, [self.food_x, self.food_y, self.tam_pixel, self.tam_pixel])
-
+    #-----------------------------------------------
     def colisao(self, cobra):
         if cobra.x == self.food_x and cobra.y == self.food_y:
             return True
         return False
-
+    #------------------------------------------------
 ######################################################
 
 class Cobra:
@@ -90,6 +92,7 @@ class Cobra:
             or [self.x, self.y] in self.pixels[:-1]
         )
 
+#----------------------------------------------------------
 comida_buff = Comida(tam_pixel, width, height)
 comida_buff.tipo = "buff"
 
@@ -99,13 +102,15 @@ comida_nerf.tipo = "nerf"
 qtd_normal = 0
 qtd_buff = 0
 qtd_nerf = 0
+#---------------------------------------------------------
 
 comida = Comida(tam_pixel, width, height)
 cobra = Cobra()
 #food_x, food_y = gerar_food()
 
+#----------------------------------------------------------
 todas_comidas = [comida, comida_buff, comida_nerf]  #adicionar
-
+#---------------------------------------------------------------
 while not end_game:
     screen.fill(preto)
 
@@ -128,6 +133,7 @@ while not end_game:
 
     cobra.mover()
 
+    #-------------------------------adicionar na main
     # Verifica colisão com a comida
     #if cobra.x == comida.food_x and cobra.y == comida.food_y:
     for c in todas_comidas:
@@ -140,24 +146,29 @@ while not end_game:
             if c.tipo == 'nerf':
                 qtd_nerf += 1
             c.food_x, c.food_y = c.gerar_posicao()
-
+    #---------------------------------------------------
     # Desenhar cobra
     for pixel in cobra.pixels:
         py.draw.rect(screen, green, [pixel[0], pixel[1], tam_pixel, tam_pixel])
 
     # Desenhar comida
     comida.desenhar(screen)
+    #-------------------------------------------
     comida_buff.desenhar(screen)
     comida_nerf.desenhar(screen)
+    #-------------------------------------------
+    
     
     # Desenhar pontuação
     fonte = py.font.SysFont("Helvetica", 20)
+     #-------------------------------------------
     normal = fonte.render(f"Normal: {qtd_normal}", True, branca)
     buff = fonte.render(f"Buff: {qtd_buff}", True, yellow)
     nerf = fonte.render(f"Nerf: {qtd_nerf}", True, red)
     screen.blit(normal, [1, 1])
     screen.blit(buff, [100, 1])
     screen.blit(nerf, [200, 1])
-
+    #----------------------------------------------------
+    
     py.display.update()
     relogio.tick(speed)
