@@ -7,6 +7,12 @@ class Comida:
         self.tam_pixel = tam_pixel
         self.width = width
         self.height = height
+        self.tipos_comida = {
+            "nerf": (255, 0, 0),  # Vermelha
+            "buff": (255, 255, 0),  # Amarela
+            "normal": (255, 255, 255)  # Branca
+        }
+        self.tipo = "normal"  # Começa com a comida normal
         self.food_x, self.food_y = self.gerar_posicao()
 
     def gerar_posicao(self, snake_pixels=[]):
@@ -19,12 +25,14 @@ class Comida:
         else:
             return self.gerar_posicao(snake_pixels)
 
-    def desenhar(self, tela, color):
-        py.draw.rect(tela, color, [self.food_x, self.food_y, self.tam_pixel, self.tam_pixel])
+    def desenhar(self, tela):
+        cor = self.tipos_comida[self.tipo]
+        py.draw.rect(tela, cor, [self.food_x, self.food_y, self.tam_pixel, self.tam_pixel])
 
-    def colisao(self, x, y):
-        return x == self.food_x and y == self.food_y
-
+    def colisao(self, cobra):
+        if cobra.x == self.food_x and cobra.y == self.food_y:
+            return True
+        return False
 ######################################################
 
 class Cobra:
@@ -56,6 +64,10 @@ class Cobra:
     def aumentar_tamanho(self, tam_snake): #verificamos se o tamanho da lista de pixels é igual ao tamanho que a cobra está, se estiver, deletamos o último pixel para a cobra não crescer infinitamente
         self.pixels.append([self.x, self.y])
         if len(self.pixels) > tam_snake:
+            del self.pixels[0]
+
+    def diminuir_tamanho(self):
+        if len(self.pixels) > 1:
             del self.pixels[0]
 
     def colisao(self, width, height): # caso a cobra bata na parede
