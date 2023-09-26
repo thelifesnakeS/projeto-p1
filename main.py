@@ -69,6 +69,17 @@ while not end_game:
         end_game = True
 
     cobra.mover()
+   
+    # Verifica borda da tela
+    if cobra.x >= width:
+        cobra.x = 0
+    elif cobra.x < 0:
+        cobra.x = width - tam_pixel
+    elif cobra.y >= height:
+        cobra.y = 0
+    elif cobra.y < 0:
+        cobra.y = height - tam_pixel
+
 
     # Verifica colisão com a comida
     for c in todas_comidas:
