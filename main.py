@@ -1,4 +1,6 @@
 import pygame as py
+import pygame.image
+from audiovisual import *
 from classes import *
 
 py.init()
@@ -8,13 +10,6 @@ screen = py.display.set_mode((width, height))
 relogio = py.time.Clock()
 
 end_game = False
-
-red = (255, 0, 0)
-green = (0, 255, 0)
-yellow = (255, 255, 0)
-preto = (0, 0, 0)
-branca = (255, 255, 255)
-
 tam_pixel = 20
 speed = 10
 tam_snake = 1
@@ -32,12 +27,15 @@ qtd_nerf = 0
 comida = Comida(tam_pixel, width, height)
 cobra = Cobra(width, height)
 
+cabeca = imagem_cabeca_up
+cabeca_cobra = py.transform.scale(cabeca, (20, 20))
+
 todas_comidas = [comida, comida_buff, comida_nerf]  #adicionar
 
 evento_anterior = ""  # Armazena a Tecla anteriormente cliclada
 
 while not end_game:
-    screen.fill(preto)
+    screen.blit(new_background, [0, 0])
 
     for e in py.event.get():
         if e.type == py.QUIT:
@@ -48,21 +46,27 @@ while not end_game:
                 if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
                     cobra.virar("up", tam_pixel)
                     evento_anterior = py.K_UP
+                    cabeca = imagem_cabeca_up
 
             elif e.key == py.K_DOWN:
                 if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
                     cobra.virar("down", tam_pixel)
                     evento_anterior = py.K_DOWN
+                    cabeca = imagem_cabeca_down
 
             elif e.key == py.K_LEFT:
                 if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
                     cobra.virar("left", tam_pixel)
                     evento_anterior = py.K_LEFT
+                    cabeca = imagem_cabeca_left
 
             elif e.key == py.K_RIGHT:
                 if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
                     cobra.virar("right", tam_pixel)
                     evento_anterior = py.K_RIGHT
+                    cabeca = imagem_cabeca_right
+    
+    cabeca_cobra = py.transform.scale(cabeca, (20, 20))
 
     cobra.aumentar_tamanho(tam_snake)
     if cobra.colisao(width, height):
@@ -70,6 +74,36 @@ while not end_game:
 
     cobra.mover()
    
+    # Verifica colisão com a comida
+    for c in todas_comidas:
+
+        if c.colisao(cobra):
+            if c.tipo == 'normal':
+                qtd_normal += 1
+                speed *= 1.03
+                tam_snake += 1
+                som_comida.play()
+
+            if c.tipo == 'buff':
+                qtd_buff += 1
+                if tam_snake > 1:
+                    tam_snake -= 1
+                    som_comida.play()
+                cobra.diminuir_tamanho()
+                if speed >= 10:
+                    speed *= 0.80
+
+            if c.tipo == 'nerf':
+                qtd_nerf += 1
+                tam_snake += 1
+                speed *= 1.10
+                som_comida.play()
+
+            c.food_x, c.food_y = c.gerar_posicao(cobra.pixels)
+
+    # Desenhar cobra
+    cobra.desenhar_cobra(screen, cabeca_cobra)
+
     # Verifica borda da tela
     if cobra.x >= width:
         cobra.x = 0
@@ -80,37 +114,8 @@ while not end_game:
     elif cobra.y < 0:
         cobra.y = height - tam_pixel
 
-
-    # Verifica colisão com a comida
-    for c in todas_comidas:
-        if c.colisao(cobra):
-            if c.tipo == 'normal':
-                qtd_normal += 1
-                speed *= 1.03
-                tam_snake += 1
-
-            if c.tipo == 'buff':
-                qtd_buff += 1
-                if tam_snake > 1:
-                    tam_snake -= 1
-                cobra.diminuir_tamanho()
-                if speed >= 10:
-                    speed *= 0.80
-
-            if c.tipo == 'nerf':
-                qtd_nerf += 1
-                tam_snake += 1
-                speed *= 1.10
-
-            c.food_x, c.food_y = c.gerar_posicao()
-
-    # Desenhar cobra
-    for pixel in cobra.pixels:
-        py.draw.rect(screen, green, [pixel[0], pixel[1], tam_pixel, tam_pixel])
-
     # Desenhar comida
     comida.desenhar(screen)
-
     comida_buff.desenhar(screen)
     comida_nerf.desenhar(screen)
 
@@ -118,7 +123,7 @@ while not end_game:
     fonte = py.font.SysFont("Helvetica", 20)
     normal = fonte.render(f"Normal: {qtd_normal}", True, branca)
     buff = fonte.render(f"Buff: {qtd_buff}", True, yellow)
-    nerf = fonte.render(f"Nerf: {qtd_nerf}", True, red)
+    nerf = fonte.render(f"Nerf: {qtd_nerf}", True, preto)
     screen.blit(normal, [1, 1])
     screen.blit(buff, [100, 1])
     screen.blit(nerf, [200, 1])
