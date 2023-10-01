@@ -1,3 +1,7 @@
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/48f72b36-a4bf-4409-8fd1-3fed3703e150"  />
+</div>
+
 <h1 align="center">The Life Snake 🐍</h1> 
   <h3 align="center">Projeto de Programação 1 - 2023.1 CIn/UFPE - Jogo Python em POO</h3>
 
@@ -140,3 +144,20 @@ Alguns colaboradores do projeto nunca tiveram contato com essa forma de programa
 **Comunicação é fator Essencial**:
 
 **Compreensão de POO**:
+#
+
+<h1 align="center">Capturas de Tela do Jogo</h1>
+
+#
+
+<h2 align="center">Tela de Gameplay</h2>
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/606584f0-2367-4c17-b528-1fe050d61b7e" />
+</div>
+
+<h2 align="center">Tela de GameOver</h2>
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/ff8caabb-4b30-499f-ac27-a2e62d52bec1" />
+</div>
