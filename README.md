@@ -11,12 +11,12 @@
 ## Membros e Divisão de Tarefas
 Membro  | Tarefas Realizadas
 :--------:| -------------
-**Kaynã Xavier (kxs)** | Liderou a criação da mecânica do jogo, como a parte de colisão e movimentação da cobra na tela, também fez a criação dos coletáveis, além de melhorar a interatividade dos mesmos inserido tempo de geração.
-**Mikaell Miguel (mms14)** | Responsável pela correção de erros, como movimentação errônea da cobra, e coletáveis sendo gerado de maneira inapropriada, também realizou a atribuição de efeitos aos coletáveis e ficou com criação do design do jogo.
-**Victor Coutinho (vmsc)**   | Foi encarregado de adicionar novas funcionalidades ao jogo, como a remoção da colisão com paredes para tornar o nível de dificuldade mais atrativo, e liderar a elaboração da apresentação advinda deste projeto.
+**Kaynã Xavier (<a href="https://github.com/kxsilva"><strong>kxs</a>)** | Liderou a criação da mecânica do jogo, como a parte de colisão e movimentação da cobra na tela, também fez a criação dos coletáveis, além de melhorar a interatividade dos mesmos inserido tempo de geração.
+**Mikaell Miguel (<a href="https://github.com/mikaellmiguel"><strong>mms14</a>)** | Responsável pela correção de erros, como movimentação errônea da cobra, e coletáveis sendo gerado de maneira inapropriada, também realizou a atribuição de efeitos aos coletáveis e ficou com criação do design do jogo.
+**Victor Coutinho (<a href="https://github.com/vmscoutinho"><strong>vmsc</a>)**   | Foi encarregado de adicionar novas funcionalidades ao jogo, como a remoção da colisão com paredes para tornar o nível de dificuldade mais atrativo, e liderar a elaboração da apresentação advinda deste projeto.
 
 ## Descrição do Jogo
-"The Snake Life 🐍" é um jogo de computador desenvolvido em Python que coloca os jogadores no papel de uma cobra faminta. O objetivo do jogo é simples, mas desafiador: você deve guiar a cobra pelo campo do jogo para coletar alimentos dispersos e, assim, conseguir a maior quantidade de alimentos possíveis, evitando colisões consigo mesma.
+"The Snake Life 🐍" é um jogo de computador desenvolvido em Python que coloca os jogadores no papel de uma cobra faminta. O objetivo do jogo é simples, mas desafiador: você deve guiar a cobra pelo campo do jogo para coletar alimentos dispersos e, assim, conseguir a maior quantidade de alimentos possíveis, evitando colisões consigo mesma. Quanto a parte visual, o jogo foi baseado no jogo da "Snake" do google que é disponibilizado nos navegadores.
 
 ### Requesitos Mínimos ⚠️
 * Estar em um ambiente desktop 🖥️
@@ -40,16 +40,22 @@ Tecla  | Ação
 
 ### Coletáveis
 
-**Normal (vermelho)**: Este coloetável é responsável por aumentar o tamanho da cobra e aumentar a velocidade em apenas 3%
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/f52c64bf-42c3-46cd-aa73-c5bef5a08df1" width="702px" />
+</div>
 
-**Nerf (Preto)**: Este coletável aumenta o tamanho da cobra, além disso, é responsável por aumentar a velocidade da cobra em 10% dificultando o controle sobre a mesma
+**Normal (vermelho)**: Este coletável é responsável por aumentar o tamanho da cobra em 1 bloco e aumentar a velocidade em apenas 3%.
+
+**Nerf (Preto)**: Este coletável aumenta o tamanho da cobra, além disso, é responsável por aumentar a velocidade da cobra em 10% dificultando o controle sobre a mesma.
 
 **Buff (Amarelo)**: Esse é o coletável mais raro, ele é responsável por diminuir 1 bloco de tamanho da cobra e diminuir 20% da velocidade melhorando o controle sobre a mesma.
 #
 ## Bibliotecas e Ferramentas
 Seção voltada a expor as **Ferramentas e Bibliotecas** que foram usadas durante o desenvolvimento do projeto.
 ### Bibliotecas 📚
-#### Pygame
+
+
+#### Pygame 🎮
 Essa é a biblioteca principal do presente projeto, a mesma consiste em uma biblioteca muito popular para desenvolvimento de jogos em Python. Ele fornece uma estrutura simples e eficaz para criar jogos 2D, tornando mais fácil a implementação de gráficos, som e interação com o usuário. Utilizamos a mesma para gerenciar os eventos de interação com usuário como entradas do teclado, criar a tela de logo, inserir imagens e sons, etc.
 
 #### Random 
@@ -76,17 +82,45 @@ Arquivo  | Função
 ### Recursividade
 A recursão é um conceito utilizado na programação no qual uma função chama a si mesma para gerar uma solução. No nosso projeto, a recursão foi utilizada na hora gerar as posições da comida, para evitar que as mesmas fossem geradas em cima do corpo da cobra, ou seja, a função de geração das posições chama a si mesma para gerar uma nova posição quando a posição gerada está localizada encima do corpo da cobra.
 
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/aa24804d-601d-4797-85de-f05643e08701" />
+</div>
+
 ### Programação orientada a Objetos (POO)
-É um paradigma de programação que se concentra na modelagem de software em torno de objetos, onde cada objeto é uma instância de uma classe e contém dados (atributos) e comportamentos (métodos). Esse foi o conceito mais utilizado tanto é que a maior parte do jogo está estruturado em POO e possui um arquivo especifico para armazenar as classes que foram utilizadas no projeto (“classes.py”). Segue abaixo um exemplo de uma das classes criadas e um método da mesma.
+É um paradigma de programação que se concentra na modelagem de software em torno de objetos, onde cada objeto é uma instância de uma classe e contém dados (atributos) e comportamentos (métodos). Esse foi o conceito mais utilizado tanto é que a maior parte do jogo está estruturado em POO e possui um arquivo específico para armazenar as classes que foram utilizadas no projeto (“classes.py”). Segue abaixo um exemplo de uma das classes criadas e um método da mesma.
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/70d17bfa-3c4b-49a2-8f5b-faa1051303a2" />
+</div>
 
 ### Listas, Dicionários, Tuplas
-São estruturas de dados que são usadas para armazenar e organizar os dados em um programa. As listas no python são coleções ordenadas e mutáveis de elementos, já os dicionários são coleções não ordenadas de pares chave-valor, por fim as tuplas são coleções ordenadas e imutáveis de elementos. No projeto, foi todos os três tipos de estruturas de dados, as tuplas por exemplo, foram utilizadas para armazenar os códigos de cores, as listas para armazenar a coleção de pixels da cobra, os dicionários para armazenas os tipos de comida.
+São estruturas de dados que são usadas para armazenar e organizar os dados em um programa. As listas no python são coleções ordenadas e mutáveis de elementos, já os dicionários são coleções não ordenadas de pares chave-valor, por fim as tuplas são coleções ordenadas e imutáveis de elementos. No projeto, foi todos os três tipos de estruturas de dados, as tuplas por exemplo, foram utilizadas para armazenar os códigos de cores, as listas para armazenar a coleção de blocos da cobra, os dicionários para armazenas os tipos de comida.
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/05c5cc09-a08a-4209-990b-5763654a2d64" />
+</div>
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/569534df-be18-4176-b776-5ca2a3d83c90)" width="800px" />
+</div>
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/4c47938f-ec80-48c7-9b55-bf1eabf8e1f3" width="800px" />
+</div>
+
 
 ### Laços condicionais
 São estruturas de controle em programação que permitem executar blocos de código com base em condições lógicas. Fizemos uso intenso dos mesmos em maior parte do código, um dos exemplos, conforme demostrado abaixo, usamos os laços condicionais para verificar para qual direção escolhida pelo usuário e assim guiar a cobra para o lado correto.
 
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/8b9f3681-442b-463f-8f12-3f92d8239802" />
+</div>
+
 ### Estruturas de repetição
 Permitem a execução repetida de um bloco de código enquanto uma determinada condição é atendida (loop) ou até que um número específico de repetições seja alcançado. No nosso projeto, o jogo roda sobre uma estrutura de repetição while que só se encerra ao usuário fechar o jogo ou acabar perdendo, conforme demostrado abaixo:
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/5c6ef177-5ed3-49f0-a2da-98bb82c51497" />
+</div>
+
 #
 ## Desafios, Erros e Lições aprendidas
 ### Desafios Inicias 
@@ -101,4 +135,8 @@ Alguns colaboradores do projeto nunca tiveram contato com essa forma de programa
 ### Maior Erro
 
 ### Lições Aprendidas
+**Uso do Git e Github**: 
 
+**Comunicação é fator Essencial**:
+
+**Compreensão de POO**:
