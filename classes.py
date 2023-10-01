@@ -5,7 +5,7 @@ from audiovisual import *
 
 ###############################################
 class Comida:
-    def __init__(self, tam_pixel, width, height):
+    def __init__(self, tam_pixel, width, height, tipo = "normal"):
         self.tam_pixel = tam_pixel
         self.width = width
         self.height = height
@@ -14,7 +14,7 @@ class Comida:
             "buff": imagem_comida_buff, 
             "normal": imagem_comida 
         }
-        self.tipo = "normal"  # Começa com a comida normal
+        self.tipo = tipo  # Começa com a comida normal
         self.food_x, self.food_y = self.gerar_posicao()
 
     def gerar_posicao(self, snake_pixels=[]):
