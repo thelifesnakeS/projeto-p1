@@ -25,7 +25,7 @@ Membro  | Tarefas Realizadas
 * Ter uma IDE com suporte ao Python Instalada
 * Ter um monitor com resolução acima de 800x600
 
-### Instruções para Uso 
+### Instruções do Jogo
 Para comecar a jogar o jogo criando neste presente projeto é necessário clonar ou baixar o repositório e na pasta 📁 executar o código que está localizado no arquivo “**main.py**” para que o jogo seja iniciado.
 
 ### Movimentos
@@ -40,7 +40,11 @@ Tecla  | Ação
 
 ### Coletáveis
 
+**Normal (vermelho)**: Este coloetável é responsável por aumentar o tamanho da cobra e aumentar a velocidade em apenas 3%
 
+**Nerf (Preto)**: Este coletável aumenta o tamanho da cobra, além disso, é responsável por aumentar a velocidade da cobra em 10% dificultando o controle sobre a mesma
+
+**Buff (Amarelo)**: Esse é o coletável mais raro, ele é responsável por diminuir 1 bloco de tamanho da cobra e diminuir 20% da velocidade melhorando o controle sobre a mesma.
 #
 ## Bibliotecas e Ferramentas
 Seção voltada a expor as **Ferramentas e Bibliotecas** que foram usadas durante o desenvolvimento do projeto.
@@ -63,10 +67,10 @@ O código do jogo foi divido em 3 arquivos:  <a href="https://github.com/thelife
 
 Arquivo  | Função
 :--------:| -------------
- <a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/classes.py">classes.py</a>|  Direciona a cobra a se mover para cima.
-<a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/audiovisual.py">audiovisual.py</a>|  Direciona a cobra a se mover para baixo.
-<a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/main.py">main.py</a>|  Direciona a cobra a se mover para direita.
-
+ <a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/classes.py">classes.py</a>|  Este arquivo, classes.py, é responsável por definir as classes e estruturas de dados que formam a base do jogo, ou seja, contém a definição dos atributos dos objetos e os seus comportamentos (os métodos). É onde está definido as propriedades e comportamentos da comida e da cobra, como por exemplo é nesse arquivo que está a maneira que foi utilizada para movimentar a cobra, também está os métodos usados para desenhar os objetos, etc. Basicamente é onde está toda nosssa estrtutura de **programação orientada a objetos**.
+<a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/audiovisual.py">audiovisual.py</a>| O arquivo audiovisual.py é responsável por lidar com a maior parte **visual e de áudio** do jogo, o mesmo foi utilizado para realizar o carregamento das imagens que estão localizadas na pasta "imagens" presente neste repositório, além disso, como descrito anteriormente esse arquivo lida com a parte sonora do jogo, nele é iniciado o mixer e carregado os sons (que estão na pasta "sound") que serão utilizados no decorrer do jogo.
+<a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/main.py">main.py</a>| O arquivo main.py é o que deve ser executado para que o usuário tenha acesso ao jogo, é nele que são criado os objetos (cobra e alimentos) usando as classes criadas em classe.py, além disso, o mesmo é o que lida com a entrada do jogador, no nosso caso, com as teclas que são apertadas. Esse arquivo também é encarregado de gerenciar o loop principal do jogo, é através dele que é definido o fluxo que as coisas devem ocorrer dentro do loop que roda o jogo e as condições de parada. Os outros dois arquivos (classes.py e audiovisual.py) servem de apoio para a execução do main.py.
+#
 ## Conceitos Utilizados da Disciplina
 
 ### Recursividade
@@ -83,7 +87,18 @@ São estruturas de controle em programação que permitem executar blocos de có
 
 ### Estruturas de repetição
 Permitem a execução repetida de um bloco de código enquanto uma determinada condição é atendida (loop) ou até que um número específico de repetições seja alcançado. No nosso projeto, o jogo roda sobre uma estrutura de repetição while que só se encerra ao usuário fechar o jogo ou acabar perdendo, conforme demostrado abaixo:
+#
+## Desafios, Erros e Lições aprendidas
+### Desafios Inicias 
+        
+#### Github e Git
+De início não sabíamos utilizar muito bem o GitHub e o Git, tivemos que dedicar no início do projeto, tempo ao estudo de ambas as plataformas, conseguimos com estudo rapidamente superar esse desafio e conseguimos criar o repositório e começar efetivamente a desenvolver o projeto, ainda com algumas dúvidas, mas as mesmas foram resolvidas logo na primeira semana de uso das plataformas.
+#### Programação Orientada a Objetos (POO)
+Alguns colaboradores do projeto nunca tiveram contato com essa forma de programar, com isso inicialmente tivemos problemas para desenvolver e entender o jogo em POO de forma correta, entretanto, esse desafio fui superado devido a ajuda mútua entre os membros do projeto sanando duvidas de quem possuía maior dificuldade no assunto.
 
+### Maior Desafio
 
+### Maior Erro
 
+### Lições Aprendidas
 
