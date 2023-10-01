@@ -7,6 +7,7 @@ green = (0, 255, 0)
 yellow = (255, 255, 0)
 preto = (0, 0, 0)
 branca = (255, 255, 255)
+blue = (105,89,205)
 
 # Definindo Backgroud
 background = py.image.load("./imagens/meu_xadrez.png")

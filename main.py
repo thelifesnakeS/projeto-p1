@@ -11,6 +11,7 @@ relogio = py.time.Clock()
 
 end_game = False
 
+on = True
 
 def jogo(end_game):
     tam_pixel = 20
@@ -32,18 +33,20 @@ def jogo(end_game):
     for i in range (10):
         todas_comidas.append(Comida(tam_pixel, width, height))
 
-    for i in range (20):
+    for i in range (10):
         todas_comidas.append(Comida(tam_pixel, width, height, "nerf"))
 
     evento_anterior = ""  # Armazena a Tecla anteriormente cliclada
     cabeca = imagem_cabeca_up
     cabeca_cobra = py.transform.scale(cabeca, (20, 20))
     while not end_game:
+        global on
         screen.blit(new_background, [0, 0])
 
         for e in py.event.get():
             if e.type == py.QUIT:
                 end_game = True
+                on = False
 
             elif e.type == py.KEYDOWN:
                 if e.key == py.K_UP:
@@ -128,7 +131,7 @@ def jogo(end_game):
 
         # Desenhar pontuação
         fonte = py.font.SysFont("Helvetica", 20)
-        normal = fonte.render(f"Normal: {qtd_normal}", True, branca)
+        normal = fonte.render(f"Normal: {qtd_normal}", True, red)
         buff = fonte.render(f"Buff: {qtd_buff}", True, yellow)
         nerf = fonte.render(f"Nerf: {qtd_nerf}", True, preto)
         screen.blit(normal, [1, 1])
@@ -138,48 +141,49 @@ def jogo(end_game):
         py.display.update()
         relogio.tick(speed)
 
-def game_over(screen, width, normal, buff, nerf):
-    jogar = True
-    global on
-    while jogar:
-        screen.fill(preto)
-        fonte1 = py.font.SysFont("Helvetica", 70)
-        fonte = py.font.SysFont("Helvetica", 30)
-        fonte2 = py.font.SysFont("Helvetica", 40)
-        texto_game_over = fonte1.render("Game Over >:) ruim", True, (255, 0, 0))
-        pontos_normais = fonte.render(f"Pontos Normais: {normal}", True, (255, 255, 255))
-        pontos_buff = fonte.render(f"Pontos Buff: {buff}", True, (255, 255, 0))
-        pontos_nerf = fonte.render(f"Pontos Nerff: {nerf}", True, (255, 0, 0))
-        total = int(normal + (nerf * 2))
-        pontos_totais = fonte2.render(f"Pontos Totais: {total}", True, (0, 255, 0))
-        reiniciar = fonte.render("Press R to Restart", True, (255, 255, 255))
-        sair = fonte.render("Press Q to Quit", True, (255, 255, 255))
-        
-        screen.blit(texto_game_over, (width / 2 - texto_game_over.get_width() / 2, 60))
-        screen.blit(pontos_normais, (width / 2 - pontos_normais.get_width() / 2, 200))
-        screen.blit(pontos_buff, (width / 2 - pontos_buff.get_width() / 2, 240))
-        screen.blit(pontos_nerf, (width / 2 - pontos_nerf.get_width() / 2, 280))
-        screen.blit(pontos_totais, (width / 2 - pontos_totais.get_width() / 2, 320))
-        screen.blit(reiniciar, (100, 410))
-        screen.blit(sair,(500, 410))
-        
-        
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r:
-                        on = True
-                        jogar = False
-                elif event.key == pygame.K_q:
-                        on = False
-                        jogar = False
+        if on == True:
+            def game_over(screen, width, normal, buff, nerf):
+                global on
+                jogar = True
+                while jogar:
+                    screen.blit(background, [0, 0])
+                    fonte1 = py.font.SysFont("Helvetica", 80)
+                    fonte = py.font.SysFont("Helvetica", 30)
+                    fonte2 = py.font.SysFont("Helvetica", 40)
+                    texto_game_over = fonte1.render("Game Over >:)", True, red)
+                    pontos_normais = fonte.render(f"Pontos Normais: {normal} x 1", True, red)
+                    pontos_buff = fonte.render(f"Pontos Buff: {buff} x 0", True, yellow)
+                    pontos_nerf = fonte.render(f"Pontos Nerff: {nerf} x 2", True, preto)
+                    total = int(normal + (nerf * 2))
+                    pontos_totais = fonte2.render(f"Pontos Totais: {total}", True, blue)
+                    reiniciar = fonte.render("Press R to Restart", True, branca)
+                    sair = fonte.render("Press Q to Quit", True, branca)
+                        
+                    screen.blit(texto_game_over, (width / 2 - texto_game_over.get_width() / 2, 60))
+                    screen.blit(pontos_normais, (width / 2 - pontos_normais.get_width() / 2, 200))
+                    screen.blit(pontos_buff, (width / 2 - pontos_buff.get_width() / 2, 240))
+                    screen.blit(pontos_nerf, (width / 2 - pontos_nerf.get_width() / 2, 280))
+                    screen.blit(pontos_totais, (width / 2 - pontos_totais.get_width() / 2, 320))
+                    screen.blit(reiniciar, (100, 410))
+                    screen.blit(sair,(500, 410))
+                        
 
-        py.display.update()
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            on = False
+                            jogar = False
+                            
+                                
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                on = True
+                                jogar = False
+                            elif event.key == pygame.K_q:
+                                on = False
+                                jogar = False
+
+                        py.display.update()
     
-    
-    
-on = True
 while on:
     jogo(end_game)
     
