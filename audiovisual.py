@@ -39,6 +39,7 @@ imagem_corpo_horizontal = py.image.load('./imagens/body_horizontal.png')
 #Sons
 pygame.init()
 som_comida = pygame.mixer.Sound('./sound/som_comida.wav')
+som_gameover = pygame.mixer.Sound('./sound/som_gameover.wav')
 
 
 

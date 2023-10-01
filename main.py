@@ -77,6 +77,7 @@ def jogo(end_game):
 
         cobra.aumentar_tamanho(tam_snake)
         if cobra.colisao(width, height):
+            som_gameover.play()
             game_over(screen, width, qtd_normal, qtd_buff, qtd_nerf)
             end_game = True
 
