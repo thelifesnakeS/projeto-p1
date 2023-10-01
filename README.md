@@ -100,7 +100,7 @@ São estruturas de dados que são usadas para armazenar e organizar os dados em 
 <img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/05c5cc09-a08a-4209-990b-5763654a2d64" />
 </div>
 <div align="center">
-<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/569534df-be18-4176-b776-5ca2a3d83c90)" width="800px" />
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/569534df-be18-4176-b776-5ca2a3d83c90" width="800px" />
 </div>
 <div align="center">
 <img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/4c47938f-ec80-48c7-9b55-bf1eabf8e1f3" width="800px" />
