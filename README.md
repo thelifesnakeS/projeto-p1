@@ -1,3 +1,7 @@
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/48f72b36-a4bf-4409-8fd1-3fed3703e150"  />
+</div>
+
 <h1 align="center">The Life Snake 🐍</h1> 
   <h3 align="center">Projeto de Programação 1 - 2023.1 CIn/UFPE - Jogo Python em POO</h3>
 
@@ -123,20 +127,41 @@ Permitem a execução repetida de um bloco de código enquanto uma determinada c
 
 #
 ## Desafios, Erros e Lições aprendidas
-### Desafios Inicias 
+
+### Maior Desafio
         
 #### Github e Git
 De início não sabíamos utilizar muito bem o GitHub e o Git, tivemos que dedicar no início do projeto, tempo ao estudo de ambas as plataformas, conseguimos com estudo rapidamente superar esse desafio e conseguimos criar o repositório e começar efetivamente a desenvolver o projeto, ainda com algumas dúvidas, mas as mesmas foram resolvidas logo na primeira semana de uso das plataformas.
 #### Programação Orientada a Objetos (POO)
 Alguns colaboradores do projeto nunca tiveram contato com essa forma de programar, com isso inicialmente tivemos problemas para desenvolver e entender o jogo em POO de forma correta, entretanto, esse desafio fui superado devido a ajuda mútua entre os membros do projeto sanando duvidas de quem possuía maior dificuldade no assunto.
 
-### Maior Desafio
+#### Conclusão
+Sendo assim, O maior desafio enfrentado durante o projeto foi a falta de familiaridade de alguns membros da equipe com as ferramentas e conceitos essenciais, como Git, GitHub e Programação Orientada a Objetos (POO). Isso exigiu um esforço extra na fase inicial para treinamento e nivelamento de conhecimento. No entanto, esse desafio se transformou em uma oportunidade de aprendizado valiosa, que fortaleceu a equipe e contribuiu para o crescimento individual de cada membro.
 
 ### Maior Erro
-
+O maior erro cometido, que ocorreu devido à necessidade de alguns membros se ausentarem temporariamente do projeto para atender às demandas de outras disciplinas, foi a divisão de tarefas que não foi possível estipular e definir de maneira estática desde o início. Sendo assim, para lidar com esse erro, tivemos que constantemente ajustar a divisão de tarefas realizada no início, de acordo com a disponibilidade que cada membro possuía no momento. Apesar de algumas tarefas terem extrapolado o prazo inicialmente definido, conseguimos, atribuindo tarefas de maneira mais dinâmica, atender ao prazo estabelecido para a conclusão do projeto. Essa adaptação contínua foi uma lição valiosa sobre a importância da flexibilidade e da capacidade de resposta às mudanças durante o desenvolvimento de um projeto.
 ### Lições Aprendidas
-**Uso do Git e Github**: 
+**Uso do Git e Github**: Como descrito anteriormente, alguns membros da equipe não possuíam conhecimento sobre o Git e GitHub. Embora isso tenha se revelado um desafio inicial, o projeto se tornou uma grande oportunidade para aprender efetivamente o uso dessas ferramentas. À medida que a equipe se familiarizava com o Git e GitHub, começaram a experimentar os benefícios de um controle de versão eficiente e colaboração mais eficaz. O aprendizado contínuo se tornou uma parte integrante do processo de desenvolvimento.
 
-**Comunicação é fator Essencial**:
+**Comunicação é fator Essencial**: Através desse presente projeto, nós como equipe, vimos que a comunicação em um ambiente de desenvolvimento é um fator essencial para o sucesso do projeto. Foi através da comunicação que os membros conseguiram sanar dúvidas referentes ao projeto e ao conteúdo abordado nele. Além disso, a comunicação eficaz evitou que tivéssemos problemas e conflitos durante o decorrer do desenvolvimento. A troca de informações e ideias permitiu que todos estivessem alinhados quanto aos objetivos e tarefas, resultando em um ambiente de trabalho mais colaborativo e produtivo. 
 
-**Compreensão de POO**:
+**Compreensão de POO**: Este presente projeto foi o primeiro contato com a programação orientada a objetos para a maioria dos membros. Como mencionado anteriormente, inicialmente, dominar essa forma de programar representou um desafio significativo. No entanto, à medida que o projeto avançava, todos os membros começaram a compreender melhor os conceitos de POO. Acreditamos que o aprendizado durante o projeto proporcionou uma base sólida para futuros projetos e uma compreensão mais profunda da estruturação do código e da reutilização de componentes.
+
+**Planejamento é crucial**: Definir metas, alocar tarefas de maneira eficiente, identificar riscos e obstáculos antes mesmo de começar a implementar nos ajudou a moldar melhor a nossa ideia conforme nossa capacidade atual. O planejamento foi algo crucial para que o projeto ocorresse sem falhas muito significativas, sendo um dos principais fatores para o sucesso do projeto. Através do planejamento, conseguimos manter o projeto no caminho certo e minimizar surpresas indesejadas ao longo do desenvolvimento. 
+#
+
+<h1 align="center">Capturas de Tela do Jogo</h1>
+
+#
+
+<h2 align="center">Tela de Gameplay</h2>
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/606584f0-2367-4c17-b528-1fe050d61b7e" />
+</div>
+
+<h2 align="center">Tela de GameOver</h2>
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/ff8caabb-4b30-499f-ac27-a2e62d52bec1" />
+</div>
