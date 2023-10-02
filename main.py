@@ -4,7 +4,6 @@ from audiovisual import *
 from classes import *
 import time
 import menuPrincipal
-import keyword
 
 py.init()
 py.display.set_caption("The Life Snake - P1")
