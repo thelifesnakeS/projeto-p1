@@ -3,6 +3,7 @@ import pygame.image
 from audiovisual import *
 from classes import *
 import time
+import menuPrincipal
 import keyword
 
 py.init()
@@ -19,6 +20,9 @@ cooldown_cima = [0]
 cooldown_lados = [0]
 
 on = True
+
+#Rodar o menu principal antes da definição de funções, para não rodar código sem necessidade caso a pessoa desista de jogar
+menuPrincipal.main_menu() 
 
 def jogo(end_game):
     tam_pixel = 20
