@@ -2,6 +2,8 @@ import pygame as py
 import pygame.image
 from audiovisual import *
 from classes import *
+import time
+import keyword
 
 py.init()
 py.display.set_caption("The Life Snake - P1")
@@ -10,6 +12,11 @@ screen = py.display.set_mode((width, height))
 relogio = py.time.Clock()
 
 end_game = False
+
+delay = 20
+
+cooldown_cima = [0]
+cooldown_lados = [0]
 
 on = True
 
@@ -49,38 +56,51 @@ def jogo(end_game):
                 on = False
 
             elif e.type == py.KEYDOWN:
+                tempo = py.time.get_ticks()
+
                 if e.key == py.K_UP:
-                    if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
+                    if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN and tempo - cooldown_cima[0] >= delay:
                         cobra.virar("up", tam_pixel)
                         evento_anterior = py.K_UP
                         cabeca = imagem_cabeca_up
+                        cooldown_cima[0] = tempo
+                        cooldown_lados[0] = tempo
 
                 elif e.key == py.K_DOWN:
-                    if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN:
+                    if evento_anterior != py.K_UP and evento_anterior != py.K_DOWN and tempo - cooldown_cima[0] >= delay:
                         cobra.virar("down", tam_pixel)
                         evento_anterior = py.K_DOWN
                         cabeca = imagem_cabeca_down
+                        cooldown_cima[0] = tempo
+                        cooldown_lados[0] = tempo
+
 
                 elif e.key == py.K_LEFT:
-                    if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
+                    if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT and tempo - cooldown_lados[0] >= delay:
                         cobra.virar("left", tam_pixel)
                         evento_anterior = py.K_LEFT
                         cabeca = imagem_cabeca_left
+                        cooldown_lados[0] = tempo
+                        cooldown_cima[0] = tempo
 
                 elif e.key == py.K_RIGHT:
-                    if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT:
+                    if evento_anterior != py.K_RIGHT and evento_anterior != py.K_LEFT and tempo - cooldown_lados[0] >= delay:
                         cobra.virar("right", tam_pixel)
                         evento_anterior = py.K_RIGHT
                         cabeca = imagem_cabeca_right
+                        cooldown_lados[0] = tempo
+                        cooldown_cima[0] = tempo
         
         cabeca_cobra = py.transform.scale(cabeca, (20, 20))
 
         cobra.aumentar_tamanho(tam_snake)
         if cobra.colisao(width, height):
             som_gameover.play()
+            time.sleep(1)
+            pygame.event.post(py.event.Event(py.KEYDOWN, key=py.K_SPACE))
             game_over(screen, width, qtd_normal, qtd_buff, qtd_nerf)
             end_game = True
-
+   
         cobra.mover()
     
         # Verifica colisão com a comida
