@@ -17,7 +17,7 @@ pygame.display.set_caption("Seu Jogo")
 # Função para desenhar texto na tela
 def draw_text(text, font, color, surface, x, y):
 
-    # Dentro da função draw_text, antes de renderizar o texto, calcule a largura do texto renderizado
+    # Formatação de texto
     text_surface = font.render(text, True, color)
     text_width = text_surface.get_width()
 
