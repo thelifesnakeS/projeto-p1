@@ -48,11 +48,11 @@ Tecla  | Ação
 <img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/f52c64bf-42c3-46cd-aa73-c5bef5a08df1" width="702px" />
 </div>
 
-**Normal (vermelho)**: Este coletável é responsável por aumentar o tamanho da cobra em 1 bloco e aumentar a velocidade em apenas 3%.
+**Normal (vermelho)**: Este coletável é responsável por aumentar o tamanho da cobra em 1 bloco e aumentar a velocidade em apenas 3%. O mesmo oferece ao jogador **1 ponto** no score final.
 
-**Nerf (Preto)**: Este coletável aumenta o tamanho da cobra, além disso, é responsável por aumentar a velocidade da cobra em 10% dificultando o controle sobre a mesma.
+**Nerf (Preto)**: Este coletável aumenta o tamanho da cobra, além disso, é responsável por aumentar a velocidade da cobra em 10% dificultando o controle sobre a mesma. O mesmo oferece ao jogador **2 pontos** no score final.
 
-**Buff (Amarelo)**: Esse é o coletável mais raro, ele é responsável por diminuir 1 bloco de tamanho da cobra e diminuir 20% da velocidade melhorando o controle sobre a mesma.
+**Buff (Amarelo)**: Esse é o coletável mais raro, ele é responsável por diminuir 1 bloco de tamanho da cobra e diminuir 20% da velocidade melhorando o controle sobre a mesma. Apesar de fornecer esses benefícios o Buff **não oferece pontos ao jogador**, sendo assim, o jogador tem que realizar esse gerenciamento de quando pegar o buff ou quando tem que pegar os outros coletáveis para aumentar o seu score.
 #
 ## Bibliotecas e Ferramentas
 Seção voltada a expor as **Ferramentas e Bibliotecas** que foram usadas durante o desenvolvimento do projeto.
@@ -64,6 +64,12 @@ Essa é a biblioteca principal do presente projeto, a mesma consiste em uma bibl
 
 #### Random 
 A biblioteca Random é comumente utilizada para gerar números aleatórios em Python. No nosso projeto, essa biblioteca é essencial para posicionar os alimentos em locais aleatórios da tela, tornando assim o jogo imprevisível. Um dos principais benefícios é criar uma experiência de jogo mais dinâmica do que os alimentos aparecerem no mesmo lugar.
+
+#### Sys
+A biblioteca Sys é uma biblioteca padrão do Python que fornece acesso a várias funcionalidades relacionadas ao sistema operacional e à interação com a linha de comando. No nosso projeto a mesma foi utilizada para realizar o fechamento do jogo através do botão presente no menu principal.
+
+#### Time
+A biblioteca time é outra biblioteca padrão do Python que lida com funções relacionadas ao tempo e ao relógio. Essa dentre as citadas anteriormente foi a menos usada, só utilizamos a mesma em apenas uma ocasião que foi para quando a cobra colidir consigo mesma ter um tempo de pausa de 1 segundo antes de ir para tela de game over para facilitar a visualição de onde ocorreu a colisão.
 
 ### Ferramentas 🔧
 #### Piskell
@@ -79,6 +85,7 @@ Arquivo  | Função
 :--------:| -------------
  <a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/classes.py">classes.py</a>|  Este arquivo, classes.py, é responsável por definir as classes e estruturas de dados que formam a base do jogo, ou seja, contém a definição dos atributos dos objetos e os seus comportamentos (os métodos). É onde está definido as propriedades e comportamentos da comida e da cobra, como por exemplo é nesse arquivo que está a maneira que foi utilizada para movimentar a cobra, também está os métodos usados para desenhar os objetos, etc. Basicamente é onde está toda nosssa estrtutura de **programação orientada a objetos**.
 <a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/audiovisual.py">audiovisual.py</a>| O arquivo audiovisual.py é responsável por lidar com a maior parte **visual e de áudio** do jogo, o mesmo foi utilizado para realizar o carregamento das imagens que estão localizadas na pasta "imagens" presente neste repositório, além disso, como descrito anteriormente esse arquivo lida com a parte sonora do jogo, nele é iniciado o mixer e carregado os sons (que estão na pasta "sound") que serão utilizados no decorrer do jogo.
+<a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/menuPrincipal.py">menuPrincipal.py</a> | O arquivo "menuPrincipal.py" é um módulo do nosso projeto que desempenha um papel fundamental em nosso programa. Ele foi projetado para fornecer um menu inicial interativo para os usuários quando executamos o programa.
 <a href="https://github.com/thelifesnakeS/projeto-p1/blob/main/main.py">main.py</a>| O arquivo main.py é o que deve ser executado para que o usuário tenha acesso ao jogo, é nele que são criado os objetos (cobra e alimentos) usando as classes criadas em classe.py, além disso, o mesmo é o que lida com a entrada do jogador, no nosso caso, com as teclas que são apertadas. Esse arquivo também é encarregado de gerenciar o loop principal do jogo, é através dele que é definido o fluxo que as coisas devem ocorrer dentro do loop que roda o jogo e as condições de parada. Os outros dois arquivos (classes.py e audiovisual.py) servem de apoio para a execução do main.py.
 #
 ## Conceitos Utilizados da Disciplina
@@ -153,6 +160,12 @@ O maior erro cometido, que ocorreu devido à necessidade de alguns membros se au
 <h1 align="center">Capturas de Tela do Jogo</h1>
 
 #
+<h2 align="center">Menu inicial</h2>
+
+<div align="center">
+<img src="https://github.com/thelifesnakeS/projeto-p1/assets/144696910/dab07cad-0493-43f8-b7ec-675e7c4ccde0" />
+</div>
+
 
 <h2 align="center">Tela de Gameplay</h2>
 
